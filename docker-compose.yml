@@ -7,3 +7,11 @@ services:
       - ./:/app:delegated
     ports:
       - '8000:80'
+    environment:
+      - TELEGRAM_BOT_API_TOKEN
+  web:
+    restart: always
+    build:
+      context: ./nginx
+    ports:
+      - 443:443

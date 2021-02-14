@@ -19,6 +19,10 @@ $config = [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
+        'telegram' => [
+            'class' => 'aki\telegram\Telegram',
+            'botToken' => $_ENV['TELEGRAM_BOT_API_TOKEN'],
+        ],
         'user' => [
             'identityClass' => 'app\models\User',
             'enableAutoLogin' => true,

@@ -9,6 +9,7 @@ namespace app\commands;
 
 use yii\console\Controller;
 use yii\console\ExitCode;
+use Yii;
 
 /**
  * This command echoes the first argument that you have entered.
@@ -30,5 +31,20 @@ class HelloController extends Controller
         echo $message . "\n";
 
         return ExitCode::OK;
+    }
+
+    public function actionTelegram($message = 'hello telegram')
+    {
+        Yii::$app->telegram->sendMessage([
+            'chat_id' => 346831085,
+            'text' => $message,
+            'reply_markup' => json_encode([
+                'inline_keyboard'=>[
+                    [
+                        ['text'=>"refresh",'callback_data'=> time()]
+                    ]
+                ]
+            ]),
+        ]);
     }
 }
