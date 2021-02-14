@@ -9,6 +9,7 @@ services:
       - '8000:80'
     environment:
       - TELEGRAM_BOT_API_TOKEN
+      - BASE_URL
   web:
     restart: always
     build:
